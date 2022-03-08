@@ -1,5 +1,7 @@
-const timerNumbers = setInterval(hideNumbers, 30000)
+// setTimeout da applicare alla funzione per nascondere i numeri 
+const timerNumbers = setTimeout(hideNumbers, 30000)
 
+// Funzione per nascondere i numeri dopo 30 secondi
 function hideNumbers(){
     document.getElementById(`output-numbers`).classList.add(`d-none`);
 }
@@ -26,28 +28,31 @@ let check = false;
 let correctNumbers = 0;
 let uncorrectNumbers = 0;
 
-const clock = setInterval(insertNumber, 30000);
+// setTimeout per ritardare l'inizio del gioco a dopo la scomparsa dei numeri
+const clock = setTimeout(insertNumber, 30000);
 
+// Funzione per far partire il gioco
 function insertNumber() {
     // Ciclo for per chiedere all'utente di inserire i numeri visualizzati
 for (let i = 0; i < 5; i++){
     let userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
     while (isNaN(userCheckNumbers)){
         userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
+        console.log(typeof(userCheckNumbers))
     }
 
     // Conidizione per  verifica che i numeri siano presenti nella lista dei numeri iniziale
 if (newArray.includes(userCheckNumbers)){
     check = true;
     correctNumbers++;
-    document.getElementById(`correct-output`).innerHTML = `I numeri corretti sono ${correctNumbers}. Sono: `;
+    document.getElementById(`correct-output`).innerHTML = `Il totale dei numeri corretti inseriti è ${correctNumbers}. Sono: `;
     document.getElementById(`correct-list`).innerHTML += `${userCheckNumbers} `;
 
     console.log(check)
 } else {
     check = false;
     uncorrectNumbers++;
-    document.getElementById(`uncorrect-output`).innerHTML = `I numeri errati sono ${uncorrectNumbers}. Sono: `;
+    document.getElementById(`uncorrect-output`).innerHTML = `Il totale dei numeri errati inseriti è ${uncorrectNumbers}. Sono: `;
     document.getElementById(`uncorrect-list`).innerHTML += `${userCheckNumbers} `;
     console.log(check)
 }

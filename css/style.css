@@ -1,3 +1,12 @@
 body{
     background-color: aquamarine;
 }
+
+#correct-info,
+#uncorrect-info{
+    width: calc((100% / 2) - 10px);
+    height: 150px;
+    margin-left: 5px;
+    background-color: rgb(40, 40, 202);
+    border-radius: 20px;
+}
