@@ -1,3 +1,9 @@
+const timerNumbers = setInterval(hideNumbers, 30000)
+
+function hideNumbers(){
+    document.getElementById(`output-numbers`).classList.add(`d-none`);
+}
+
 // Funzione per generare un array di numeri casuali
 function generateRandomNumber (){
     const newArray = [];
@@ -20,9 +26,16 @@ let check = false;
 let correctNumbers = 0;
 let uncorrectNumbers = 0;
 
-// Ciclo for per chiedere all'utente di inserire i numeri visualizzati
+const clock = setInterval(insertNumber, 30000);
+
+function insertNumber() {
+    // Ciclo for per chiedere all'utente di inserire i numeri visualizzati
 for (let i = 0; i < 5; i++){
     let userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
+    while (isNaN(userCheckNumbers)){
+        userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
+    }
+
     // Conidizione per  verifica che i numeri siano presenti nella lista dei numeri iniziale
 if (newArray.includes(userCheckNumbers)){
     check = true;
@@ -37,5 +50,6 @@ if (newArray.includes(userCheckNumbers)){
     document.getElementById(`uncorrect-output`).innerHTML = `I numeri errati sono ${uncorrectNumbers}. Sono: `;
     document.getElementById(`uncorrect-list`).innerHTML += `${userCheckNumbers} `;
     console.log(check)
+}
 }
 }
