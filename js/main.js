@@ -36,25 +36,25 @@ function insertNumber() {
     // Ciclo for per chiedere all'utente di inserire i numeri visualizzati
 for (let i = 0; i < 5; i++){
     let userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
-    while (isNaN(userCheckNumbers)){
-        userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
-        console.log(typeof(userCheckNumbers))
+        while (isNaN(userCheckNumbers)){
+            userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
+            console.log(typeof(userCheckNumbers))
+        }
+
+        // Conidizione per  verifica che i numeri siano presenti nella lista dei numeri iniziale
+        if (newArray.includes(userCheckNumbers)){
+        check = true;
+        correctNumbers++;
+        document.getElementById(`correct-output`).innerHTML = `Il totale dei numeri corretti inseriti è ${correctNumbers}. Sono: `;
+        document.getElementById(`correct-list`).innerHTML += `${userCheckNumbers} `;
+
+        console.log(check)
+        } else {
+        check = false;
+        uncorrectNumbers++;
+        document.getElementById(`uncorrect-output`).innerHTML = `Il totale dei numeri errati inseriti è ${uncorrectNumbers}. Sono: `;
+        document.getElementById(`uncorrect-list`).innerHTML += `${userCheckNumbers} `;
+        console.log(check)
+        }
     }
-
-    // Conidizione per  verifica che i numeri siano presenti nella lista dei numeri iniziale
-if (newArray.includes(userCheckNumbers)){
-    check = true;
-    correctNumbers++;
-    document.getElementById(`correct-output`).innerHTML = `Il totale dei numeri corretti inseriti è ${correctNumbers}. Sono: `;
-    document.getElementById(`correct-list`).innerHTML += `${userCheckNumbers} `;
-
-    console.log(check)
-} else {
-    check = false;
-    uncorrectNumbers++;
-    document.getElementById(`uncorrect-output`).innerHTML = `Il totale dei numeri errati inseriti è ${uncorrectNumbers}. Sono: `;
-    document.getElementById(`uncorrect-list`).innerHTML += `${userCheckNumbers} `;
-    console.log(check)
-}
-}
 }
