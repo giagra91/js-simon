@@ -28,7 +28,6 @@ const clock = setTimeout(insertNumber, 3000);
 
 // Funzione per far partire il gioco
 function insertNumber() {
-const newUserArray = [];
     // Ciclo for per chiedere all'utente di inserire i numeri visualizzati
 for (let i = 0; i < 5; i++){
     let userCheckNumbers = parseInt(prompt(`Inserisci i numeri che hai visto sullo schermo.`));
